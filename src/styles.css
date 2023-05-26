@@ -48,6 +48,10 @@ hr {
   height: 50px;
 }
 
+.active {
+  text-decoration: underline antiquewhite;
+}
+
 /* Animaciones */
 
 .animated {
