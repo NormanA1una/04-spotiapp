@@ -1,1 +1,32 @@
-<p>home works!</p>
+<div class="grid grid-cols-1 min-[820px]:grid-cols-3 gap-y-4 mt-4">
+  <mat-card
+    *ngFor="let cancion of nuevasCanciones"
+    class="max-w-[400px] mx-auto"
+  >
+    <mat-card-header>
+      <mat-card-title class="text-black">{{ cancion.name }} </mat-card-title>
+      <mat-card-subtitle>
+        <button
+          *ngFor="let artista of cancion.artists"
+          class="mb-2 mr-2 p-6"
+          mat-raised-button
+          color="primary"
+          matBadge="8"
+          matBadgePosition="before"
+          matBadgeColor="accent"
+        >
+          {{ artista.name }}
+        </button>
+      </mat-card-subtitle>
+    </mat-card-header>
+    <img
+      mat-card-image
+      [src]="cancion.images[0].url"
+      alt="Photo of a Shiba Inu"
+    />
+    <mat-card-actions>
+      <button mat-button>LIKE</button>
+      <button mat-button>SHARE</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
