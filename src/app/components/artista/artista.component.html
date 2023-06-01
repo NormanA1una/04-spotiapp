@@ -49,7 +49,17 @@
         </td>
         <td class="border-y border-gray-400 px-4 py-4">{{ item.name }}</td>
         <td class="border-y border-gray-400 px-4 py-4">
-          <audio [src]="item.preview_url" controls class="w-full"></audio>
+          <!-- <audio [src]="item.preview_url" controls class="w-full"></audio> -->
+          <iframe
+            style="border-radius: 12px"
+            [src]="item.id | domseguro"
+            width="100%"
+            height="152"
+            frameBorder="0"
+            allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+          ></iframe>
         </td>
       </tr>
     </tbody>
