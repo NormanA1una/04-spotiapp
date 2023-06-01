@@ -10,6 +10,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatTableModule } from '@angular/material/table';
 
 //Componentes
 import { AppComponent } from './app.component';
@@ -22,6 +23,11 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { ROUTES } from './app.routes';
 import { NavbarMobileComponent } from './components/shared/navbar-mobile/navbar-mobile.component';
 
+//Pipes
+import { NoimagePipe } from './pipes/noimage.pipe';
+import { TarjetasComponent } from './components/tarjetas/tarjetas.component';
+import { LoadingComponent } from './components/shared/loading/loading.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +36,9 @@ import { NavbarMobileComponent } from './components/shared/navbar-mobile/navbar-
     ArtistaComponent,
     NavbarComponent,
     NavbarMobileComponent,
+    NoimagePipe,
+    TarjetasComponent,
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +50,7 @@ import { NavbarMobileComponent } from './components/shared/navbar-mobile/navbar-
     MatToolbarModule,
     MatButtonModule,
     MatCardModule,
+    MatTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

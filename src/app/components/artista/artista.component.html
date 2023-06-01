@@ -1,1 +1,57 @@
-<p>artista works!</p>
+<app-loading *ngIf="loading"></app-loading>
+
+<div
+  *ngIf="!loading"
+  class="animated fadeIn grid grid-cols-5 min-[1500px]:grid-cols-7 items-center mt-10"
+>
+  <div class="grid justify-items-center">
+    <img
+      [src]="artista.images | noimage"
+      [alt]="artista.name"
+      class="img-circle border-solid border-8"
+    />
+  </div>
+  <div class="col-span-3 min-[1500px]:col-span-5">
+    <h3 class="text-4xl">
+      {{ artista.name }}
+    </h3>
+    <p>
+      <a [href]="artista.external_urls.spotify" target="_blank"
+        >Ir a la pagina del artista</a
+      >
+    </p>
+  </div>
+  <div>
+    <button routerLink="/search" mat-raised-button color="primary">
+      Regresar
+    </button>
+  </div>
+</div>
+
+<div class="mt-10">
+  <table class="w-full">
+    <thead>
+      <tr>
+        <th class="border-y border-gray-400 px-4 py-4">Foto</th>
+        <th class="border-y border-gray-400 px-4 py-4">Album</th>
+        <th class="border-y border-gray-400 px-4 py-4">Canción</th>
+        <th class="border-y border-gray-400 px-4 py-4">Vista Previa</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let item of topTracks">
+        <td class="border-y border-gray-400 px-4 py-4">
+          <img [src]="item.album.images | noimage" class="img-thumb" />
+        </td>
+        <td class="border-y border-gray-400 px-4 py-4">
+          {{ item.album.name }}
+        </td>
+        <td class="border-y border-gray-400 px-4 py-4">{{ item.name }}</td>
+        <td class="border-y border-gray-400 px-4 py-4">
+          <audio [src]="item.preview_url" controls class="w-full"></audio>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

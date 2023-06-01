@@ -1,1 +1,15 @@
-<p>search works!</p>
+<div class="grid grid-rows-1 mt-10">
+  <input
+    #termino
+    type="text"
+    (keyup)="buscar(termino.value)"
+    placeholder="Buscar artista..."
+    class="p-3 rounded text-black"
+  />
+</div>
+
+<app-loading *ngIf="loading"></app-loading>
+
+<div *ngIf="!loading">
+  <app-tarjetas [items]="artistas"></app-tarjetas>
+</div>
